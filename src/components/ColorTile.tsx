@@ -12,11 +12,11 @@ import { ColorContext } from "../App";
 export default function ColorTile({
 	bgColor,
 	topLabel,
-	bottomLabel,
+	showColor = false,
 }: {
 	bgColor: string,
 	topLabel?: string,
-	bottomLabel?: string,
+	showColor?: boolean,
 }) {
 	/** Canvas for getting the hex color. */
 	const canvas = document.createElement("canvas");
@@ -70,7 +70,7 @@ export default function ColorTile({
 			/>
 
 			{/* Bottom text */}
-			{bottomLabel && <span className="bottom label">{bottomLabel}</span>}
+			{showColor && <span className="bottom label">{hex}</span>}
 		</button>
 	);
 }
