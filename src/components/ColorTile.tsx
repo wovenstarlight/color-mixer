@@ -7,16 +7,13 @@ import ColorContext from "../contexts/ColorContext";
  * @param {object} props Properties for this tile.
  * @param props.bgColor The color to be previewed; should be a valid CSS `<color>` value.
  * @param props.topLabel A label to display at the top of the button.
- * @param props.showColor Whether to show the hexadecimal color string at the bottom of the button.
  */
 export default function ColorTile({
 	bgColor,
 	topLabel,
-	showColor = false,
 }: {
 	bgColor: string,
 	topLabel?: string,
-	showColor?: boolean,
 }) {
 	/** Canvas for getting the hex color. */
 	const canvas = document.createElement("canvas");
@@ -66,7 +63,7 @@ export default function ColorTile({
 			/>
 
 			{/* Bottom text */}
-			{showColor && <span className="bottom label">{hex}</span>}
+			<span className="bottom label">{hex}</span>
 		</button>
 	);
 }

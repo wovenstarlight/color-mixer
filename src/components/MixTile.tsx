@@ -16,7 +16,6 @@ export default function MixTile({
 		<ColorTile
 			bgColor={`color-mix(in ${space}${interpolation ? ` ${interpolation}` : ""}, var(--color1, #fff) var(--strength1, 50%), var(--color2, #000) var(--strength2, 50%))`}
 			topLabel={`${space}${interpolation ? ` (${interpolation})` : ""}`}
-			showColor={true}
 		/>
 	);
 }
