@@ -6,12 +6,12 @@ import ColorContext from "./contexts/ColorContext";
 
 function App() {
 	const [color1, setColor1] = useState({
-		color: "#ffffff",
+		color: "#cc0000",
 		opacity: 100,
 		strength: 50,
 	});
 	const [color2, setColor2] = useState({
-		color: "#000000",
+		color: "#0000cc",
 		opacity: 100,
 		strength: 50,
 	});
