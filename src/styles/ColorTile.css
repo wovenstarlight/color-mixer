@@ -5,6 +5,7 @@
 	cursor: pointer;
 	border: thin solid transparent;
 	border-radius: 0.25em;
+	position: relative;
 
 	&:hover {
 		border-color: var(--accent);
@@ -17,8 +18,26 @@
 	.flat {
 		display: block;
 		min-width: 3em;
-		min-height: 3em;
+		min-height: 4em;
 		background-color: var(--color);
 		border: thin solid #aaa;
+		border-radius: 0.125em;
+	}
+
+	.label {
+		position: absolute;
+		background-color: var(--bg-secondary);
+		color: var(--text);
+		padding: 0.25em 0.5em;
+		border-radius: 0.25em;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		max-width: 100%;
+
+		&.top {
+			top: 0;
+			white-space: pre;
+		}
+		&.bottom { top: 100% }
 	}
 }
