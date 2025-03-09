@@ -30,6 +30,14 @@ export default function ColorPicker({
 		else setTextColor(e.target.value);
 	}
 
+	/** Updates opacity. */
+	function setOpacity(e: ChangeEvent<HTMLInputElement>) {
+		setData((value: Color) => ({
+			...value,
+			opacity: parseFloat(e.target.value),
+		}));
+	}
+
 	return (
 		<fieldset className="colorpicker">
 			<legend>{title}</legend>
@@ -61,7 +69,18 @@ export default function ColorPicker({
 				</span>
 			</label>
 
-			{/* TODO: Opacity slider */}
+			<label>
+				<span className="rangelabel">Opacity: {data.opacity}%</span>
+				<input
+					type="range"
+					list="markers"
+					min={0}
+					max={100}
+					step={0.1}
+					value={data.opacity}
+					onChange={setOpacity}
+				/>
+			</label>
 
 			{/* TODO: Color preview */}
 
