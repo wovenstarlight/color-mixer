@@ -1,0 +1,16 @@
+.colortile {
+	display: block;
+	padding: 0.25em;
+	background-color: white;
+	cursor: pointer;
+	border: none;
+	border-radius: 0.25em;
+
+	.flat {
+		display: block;
+		min-width: 3em;
+		min-height: 3em;
+		background-color: var(--color);
+		border: thin solid #aaa;
+	}
+}
