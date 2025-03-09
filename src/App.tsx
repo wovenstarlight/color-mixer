@@ -55,7 +55,7 @@ function App() {
 
 			<footer>
 				<p>by wovenstarlight</p>
-				<p><a href="https://github.com/wovenstarlight/color-mixer">view source on Github</a></p>
+				<p><a href="https://github.com/wovenstarlight/color-mixer">view source on GitHub</a></p>
 			</footer>
 		</ColorContext.Provider>
 	)
