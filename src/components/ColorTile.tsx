@@ -28,8 +28,10 @@ export default function ColorTile({
 	/** Hex representation of the mixed color. */
 	const [hex, setHex] = useState("#");
 
-	/** Returns the hex representation of the current */
-	function updateHex() {
+	// Force an update in the calculated hex if the overall colors change
+	const [color1, color2] = useContext(ColorContext);
+	const colorString = Object.values(color1).join("").concat(Object.values(color2).join(""));
+	useEffect(() =>{
 		ctx!.clearRect(0, 0, 1, 1);
 		ctx!.fillStyle = window.getComputedStyle(flatColor.current!).getPropertyValue("background-color");
 		ctx!.fillRect(0, 0, 1, 1);
@@ -40,13 +42,7 @@ export default function ColorTile({
 			decimalToHex(data[2]),
 			decimalToHex(data[3]),
 		].join("")));
-	}
-
-	// Force an update in the calculated hex if the overall colors change
-	const [color1, color2] = useContext(ColorContext);
-	useEffect(() =>{
-		updateHex();
-	}, [Object.values(color1).join(""), Object.values(color2).join("")]);
+	}, [colorString, ctx]);
 
 	/** Copies this tile's color to the clipboard as a hex value. */
 	function copyColor() {
