@@ -34,7 +34,16 @@
 			border: thin solid rgb(from currentColor r g b / 0.25);
 			border-radius: 0.25em;
 			letter-spacing: 0.05em;
-			
+			transition: border-color 0.25s;
+
+			&:hover {
+				border-color: var(--accent);
+			}
+
+			&:is(:focus, :focus-visible) {
+				outline: 0.25em auto -webkit-focus-ring-color;
+			}
+
 			&:invalid {
 				border-color: red;
 			}

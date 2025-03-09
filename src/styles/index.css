@@ -70,7 +70,7 @@ button, .button {
 		border-color: var(--accent);
 	}
 
-	&:is(:focus, :focus-visible) {
+	&:is(:focus, :focus-within, :focus-visible) {
 		outline: 0.25em auto -webkit-focus-ring-color;
 	}
 }
