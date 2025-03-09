@@ -19,6 +19,8 @@ function App() {
 	return (
 		<ColorContext.Provider value={[color1, color2]}>
 			<h1>color-mix(er)</h1>
+			<p><i>(click a tile to copy the corresponding hex code!)</i></p>
+
 			<form id="colorpicking">
 				<ColorPicker
 					title="Choose first color"
@@ -47,8 +49,7 @@ function App() {
 				</datalist>
 			</form>
 			<section id="mixes">
-				<h2>Color mixes</h2>
-				<p>Click a tile to copy the corresponding hex code!</p>
+				<h2>Blended colors</h2>
 				<MixGrid />
 			</section>
 
