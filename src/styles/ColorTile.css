@@ -1,10 +1,18 @@
 .colortile {
 	display: block;
-	padding: 0.25em;
+	padding: 0.125em;
 	background-color: white;
 	cursor: pointer;
-	border: none;
+	border: thin solid transparent;
 	border-radius: 0.25em;
+
+	&:hover {
+		border-color: var(--accent);
+	}
+	
+	&:is(:focus, :focus-visible) {
+		outline: 0.25em auto -webkit-focus-ring-color;
+	}
 
 	.flat {
 		display: block;
