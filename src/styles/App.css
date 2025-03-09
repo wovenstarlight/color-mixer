@@ -8,3 +8,7 @@
 		grid-template-columns: 1fr 1fr;
 	}
 }
+
+footer {
+	margin-block-start: 3em;
+}

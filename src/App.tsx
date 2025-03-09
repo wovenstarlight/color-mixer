@@ -51,6 +51,11 @@ function App() {
 				<p>Click a tile to copy the corresponding hex code!</p>
 				<MixGrid />
 			</section>
+
+			<footer>
+				<p>by wovenstarlight</p>
+				<p><a href="https://github.com/wovenstarlight/color-mixer">view source on Github</a></p>
+			</footer>
 		</ColorContext.Provider>
 	)
 }
