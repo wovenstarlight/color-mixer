@@ -116,7 +116,7 @@ export default function ColorPicker({
 					max={100}
 					step={0.1}
 					value={data.strength}
-					onChange={(e) => setData((value: Color) => ({ ...value, strength: e.target.value }))}
+					onChange={(e) => setData((value: Color) => ({ ...value, strength: parseFloat(e.target.value) }))}
 				/>
 			</label>
 		</fieldset>
