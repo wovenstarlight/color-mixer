@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { Color } from "../definitions";
+import { Color, ColorSetter } from "../definitions";
 import { buildColor } from "../utils/colorParsers";
 import "../styles/ColorPicker.css";
 import ColorTile from "./ColorTile";
@@ -17,7 +17,7 @@ export default function ColorPicker({
 }: {
 	title: string,
 	data: Color,
-	setData: Function,
+	setData: ColorSetter,
 }) {
 	/** Editable state for the text color */
 	const [textColor, setTextColor] = useState(data.color.slice(1))
