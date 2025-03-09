@@ -24,9 +24,14 @@ export default function ColorPicker({
 
 	/** Updates base color.
 	 * @param color The new base color.
+	 * @param shortTextColor `true` if the text input should display the 3-character version of `color`. If `true`, color will not have a leading hash symbol.
 	 */
-	function setColor(color: string) {
-		setTextColor(color.startsWith("#") ? color.slice(1) : color);
+	function setColor(color: string, shortTextColor: boolean = false) {
+		if (shortTextColor) {
+			const [r,,g,,b,] = color.split("");
+			setTextColor(`${r}${g}${b}`);
+		}
+		else setTextColor(color.startsWith("#") ? color.slice(1) : color);
 		setData((value: Color) => ({
 			...value,
 			color: color,
@@ -35,7 +40,14 @@ export default function ColorPicker({
 
 	/** Checks the text input for a valid color and updates data accordingly. */
 	function setColorText(e: ChangeEvent<HTMLInputElement>) {
+		// Valid format (3-char)
 		if (/^[\da-f]{6}$/.test(e.target.value)) setColor(e.target.value);
+		// Valid format (6-char)
+		else if (/^[\da-f]{3}$/.test(e.target.value)) {
+			let [r, g, b] = e.target.value.split("");
+			setColor(`${r}${r}${g}${g}${b}${b}`, true);
+		}
+		// Invalid format; let the user keep editing
 		else setTextColor(e.target.value);
 	}
 
@@ -67,9 +79,9 @@ export default function ColorPicker({
 					<span className="icon">#</span>
 					<input
 						type="text"
-						pattern="[\da-f]{6}"
+						pattern="([\da-f]{3}|[\da-f]{6})"
 						placeholder="ffffff"
-						minLength={6}
+						minLength={3}
 						maxLength={6}
 						required
 						value={textColor}
