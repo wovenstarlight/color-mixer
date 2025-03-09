@@ -1,0 +1,42 @@
+.colorpicker {
+	padding: 1em;
+
+	/* Top label */
+	legend {
+		margin-inline: auto;
+		padding: 0.25em 0.5em;
+		font-style: italic;
+	}
+
+	/* Standardize input layout and spacing */
+	label, label .button { display: block }
+	input, label .button { width: 100% }
+	label { margin-block: 1em }
+	label:has(.button) { margin-block-start: 0 }
+	label:last-child { margin-block-end: 0 }
+
+	/* Special placement for the text  */
+	.hex {
+		position: relative;
+		line-height: 1;
+		
+		.icon {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0.75em;
+		}
+		input {
+			font: inherit;
+			padding: 0.5em;
+			padding-inline-start: 1.75em;
+			border: thin solid rgb(from currentColor r g b / 0.25);
+			border-radius: 0.25em;
+			letter-spacing: 0.05em;
+			
+			&:invalid {
+				border-color: red;
+			}
+		}
+	}
+}

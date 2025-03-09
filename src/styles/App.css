@@ -1,0 +1,10 @@
+#colorpicking {
+	display: grid;
+	gap: min(2vmax, 1em);
+	max-width: 60rem;
+	margin-inline: auto;
+
+	@media (min-width: 45rem) {
+		grid-template-columns: 1fr 1fr;
+	}
+}
