@@ -1,7 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import { Color } from "../definitions";
-import { getBaseColor } from "../utils/colorParsers";
+import { buildColor, getBaseColor } from "../utils/colorParsers";
 import "../styles/ColorPicker.css";
+import ColorTile from "./ColorTile";
 
 export default function ColorPicker({
 	title,
@@ -82,7 +83,9 @@ export default function ColorPicker({
 				/>
 			</label>
 
-			{/* TODO: Color preview */}
+			<ColorTile styles={{
+				color: buildColor(data.color, data.opacity),
+			}} />
 
 			{/* TODO: Mix strength slider */}
 		</fieldset>
