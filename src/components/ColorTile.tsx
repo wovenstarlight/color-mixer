@@ -8,16 +8,14 @@ canvas.width = canvas.height = 1;
 const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
 export default function ColorTile({
-	styles,
+	bgColor,
 	topLabel,
 	bottomLabel,
 }: {
-	styles: { [key: string]: string },
+	bgColor: string,
 	topLabel?: string,
 	bottomLabel?: string,
 }) {
-	/** CSS properties for this object. */
-	const properties = Object.fromEntries(Object.entries(styles).map(el => [`--${el[0]}`, el[1]]));
 	/** Reference to the actual color preview. */
 	const flatColor = useRef(null);
 
@@ -51,7 +49,7 @@ export default function ColorTile({
 			<div
 				ref={flatColor}
 				className="flat"
-				style={properties as CSSProperties}
+				style={{ backgroundColor: bgColor }}
 			/>
 
 			{/* Bottom text */}

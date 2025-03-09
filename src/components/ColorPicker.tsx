@@ -83,9 +83,7 @@ export default function ColorPicker({
 				/>
 			</label>
 
-			<ColorTile styles={{
-				color: buildColor(data.color, data.opacity),
-			}} />
+			<ColorTile bgColor={buildColor(data.color, data.opacity)} />
 
 			<hr />
 
