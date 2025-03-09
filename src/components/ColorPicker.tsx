@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { Color } from "../definitions";
-import { buildColor, getBaseColor } from "../utils/colorParsers";
+import { buildColor } from "../utils/colorParsers";
 import "../styles/ColorPicker.css";
 import ColorTile from "./ColorTile";
 
@@ -20,11 +20,11 @@ export default function ColorPicker({
 	setData: Function,
 }) {
 	/** Editable state for the text color */
-	const [textColor, setTextColor] = useState(getBaseColor(data.color, false))
+	const [textColor, setTextColor] = useState(data.color.slice(1))
 
 	/** Updates base color. */
 	function setColor(e: ChangeEvent<HTMLInputElement>) {
-		setTextColor(getBaseColor(e.target.value, !e.target.value.startsWith("#")));
+		setTextColor(e.target.value.startsWith("#") ? e.target.value.slice(1) : e.target.value);
 		setData((value: Color) => ({
 			...value,
 			color: e.target.value,
