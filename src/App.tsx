@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles/App.css";
+import ColorPicker from "./components/ColorPicker";
 
 function App() {
 	const [color1, setColor1] = useState({
@@ -16,7 +17,38 @@ function App() {
 	return (
 		<>
 			<h1>color-mix(er)</h1>
-			{/* TODO */}
+			<form id="colorpicking">
+				<ColorPicker
+					title="Choose first color"
+					data={color1}
+					setData={setColor1}
+				/>
+				<ColorPicker
+					title="Choose second color"
+					data={color2}
+					setData={setColor2}
+				/>
+
+				{/* Markers for opacity/strength sliders */}
+				<datalist id="markers">
+					<option value="0"></option>
+					<option value="10"></option>
+					<option value="20"></option>
+					<option value="30"></option>
+					<option value="40"></option>
+					<option value="50"></option>
+					<option value="60"></option>
+					<option value="70"></option>
+					<option value="80"></option>
+					<option value="90"></option>
+					<option value="100"></option>
+				</datalist>
+			</form>
+			<section id="mixes">
+				<h2>Color mixes</h2>
+				<p>Click a tile to copy the corresponding hex code!</p>
+				{/* TODO */}
+			</section>
 		</>
 	)
 }
