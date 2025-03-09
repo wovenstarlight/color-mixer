@@ -1,5 +1,6 @@
 .colorpicker {
 	padding: 1em;
+	border: thin solid rgb(from currentColor r g b / 0.25);
 
 	/* Top label */
 	legend {
