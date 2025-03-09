@@ -9,9 +9,9 @@
 	}
 
 	/* Standardize input layout and spacing */
-	label, label .button { display: block }
+	label, label .button, .rangelabel { display: block }
 	input, label .button { width: 100% }
-	label { margin-block: 1em }
+	label, hr { margin-block: 1em }
 	label:has(.button) { margin-block-start: 0 }
 	label:last-child { margin-block-end: 0 }
 

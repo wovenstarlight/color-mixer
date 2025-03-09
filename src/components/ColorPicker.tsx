@@ -87,7 +87,20 @@ export default function ColorPicker({
 				color: buildColor(data.color, data.opacity),
 			}} />
 
-			{/* TODO: Mix strength slider */}
+			<hr />
+
+			<label>
+				<span className="rangelabel">Mix strength: {data.strength}%</span>
+				<input
+					type="range"
+					list="markers"
+					min={0}
+					max={100}
+					step={0.1}
+					value={data.strength}
+					onChange={(e) => setData((value: Color) => ({ ...value, strength: e.target.value }))}
+				/>
+			</label>
 		</fieldset>
 	);
 }
