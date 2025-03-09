@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import "./styles/App.css";
 import ColorPicker from "./components/ColorPicker";
+import MixGrid from "./components/MixGrid";
 import { Color } from "./definitions";
 
 export const ColorContext = createContext<Color[]>([]);
@@ -50,7 +51,7 @@ function App() {
 			<section id="mixes">
 				<h2>Color mixes</h2>
 				<p>Click a tile to copy the corresponding hex code!</p>
-				{/* TODO */}
+				<MixGrid />
 			</section>
 		</ColorContext.Provider>
 	)

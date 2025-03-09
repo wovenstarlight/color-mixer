@@ -1,0 +1,26 @@
+#mixgrid {
+	padding: 1em min(3em, 2vw);
+}
+
+#mixgrid, .mixflat, .mixstack {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2.5em;
+}
+
+.mixstack {
+	flex-direction: column;
+}
+
+.mixflat, .mixstack {
+	flex-grow: 1;
+
+	.colortile {
+		min-width: 8em;
+		flex-grow: 1;
+
+		.flat {
+			min-height: 5.5em;
+		}
+	}
+}
