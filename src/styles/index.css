@@ -1,0 +1,88 @@
+:root {
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color-scheme: light dark;
+
+	--bg: light-dark(#ffffff, #242424);
+	--bg-secondary: light-dark(#f4f4f4, #1a1a1a);
+	--text: light-dark(#213547, #ffffffde);
+	--accent: #646cff;
+	--accent-intensify: light-dark(#747bff, #535bf2);
+
+	color: var(--text);
+	background-color: var(--bg);
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	font-weight: 500;
+	color: var(--accent);
+	text-decoration: inherit;
+}
+
+a:hover {
+	color: var(--accent-intensify);
+}
+
+body {
+	margin: 0;
+	display: flex;
+	place-items: center;
+	min-width: 320px;
+	min-height: 100vh;
+}
+
+#root {
+	width: 80rem;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: min(2rem, 5vh) min(2rem, 5vw);
+	text-align: center;
+}
+
+h1 {
+	font-size: 3.2em;
+	line-height: 1.1;
+}
+
+button {
+	border-radius: 0.5em;
+	border: thin solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	background-color: var(--bg-secondary);
+	cursor: pointer;
+	transition: border-color 0.25s;
+}
+
+button:hover {
+	border-color: var(--accent);
+}
+
+button:is(:focus, :focus-visible) {
+	outline: 0.25em auto -webkit-focus-ring-color;
+}
+
+/* Visually hide elements without removing them from the screen reader interface */
+.vhide {
+	position: fixed;
+	top: 100%;
+	left: 100%;
+	right: unset;
+	bottom: unset;
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+}
