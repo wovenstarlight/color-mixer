@@ -2,7 +2,7 @@ import { CSSProperties, useContext } from "react";
 import MixTile from "./MixTile";
 import { buildColor } from "../utils/colorParsers";
 import "../styles/MixGrid.css";
-import { ColorContext } from "../App";
+import ColorContext from "../contexts/ColorContext";
 
 /** A grid of various mixed color tiles. */
 export default function MixGrid() {

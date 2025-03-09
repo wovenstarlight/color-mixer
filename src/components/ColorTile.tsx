@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "../styles/ColorTile.css";
 import { decimalToHex } from "../utils/colorParsers";
-import { ColorContext } from "../App";
+import ColorContext from "../contexts/ColorContext";
 
 /** A preview of a given color, clickable to copy the corresponding hexadecimal color representation.
  * @param {object} props Properties for this tile.

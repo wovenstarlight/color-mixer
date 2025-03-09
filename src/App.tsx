@@ -1,10 +1,8 @@
-import { createContext, useState } from "react";
+import { useState } from "react";
 import "./styles/App.css";
 import ColorPicker from "./components/ColorPicker";
 import MixGrid from "./components/MixGrid";
-import { Color } from "./definitions";
-
-export const ColorContext = createContext<Color[]>([]);
+import ColorContext from "./contexts/ColorContext";
 
 function App() {
 	const [color1, setColor1] = useState({
