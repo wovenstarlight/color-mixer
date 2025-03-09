@@ -22,18 +22,20 @@ export default function ColorPicker({
 	/** Editable state for the text color */
 	const [textColor, setTextColor] = useState(data.color.slice(1))
 
-	/** Updates base color. */
-	function setColor(e: ChangeEvent<HTMLInputElement>) {
-		setTextColor(e.target.value.startsWith("#") ? e.target.value.slice(1) : e.target.value);
+	/** Updates base color.
+	 * @param color The new base color.
+	 */
+	function setColor(color: string) {
+		setTextColor(color.startsWith("#") ? color.slice(1) : color);
 		setData((value: Color) => ({
 			...value,
-			color: e.target.value,
+			color: color,
 		}));
 	}
 
 	/** Checks the text input for a valid color and updates data accordingly. */
 	function setColorText(e: ChangeEvent<HTMLInputElement>) {
-		if (/^[\da-f]{6}$/.test(e.target.value)) setColor(e);
+		if (/^[\da-f]{6}$/.test(e.target.value)) setColor(e.target.value);
 		else setTextColor(e.target.value);
 	}
 
@@ -55,7 +57,7 @@ export default function ColorPicker({
 					type="color"
 					className="vhide"
 					value={data.color}
-					onInput={setColor}
+					onInput={(e) => setColor((e.target as HTMLInputElement).value)}
 				/>
 			</label>
 
