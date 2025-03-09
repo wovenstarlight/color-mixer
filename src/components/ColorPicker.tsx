@@ -4,6 +4,12 @@ import { buildColor, getBaseColor } from "../utils/colorParsers";
 import "../styles/ColorPicker.css";
 import ColorTile from "./ColorTile";
 
+/** Form fieldset for selecting a color to be mixed.
+ * @param {object} props Properties for this tile.
+ * @param props.title The title of this fieldset.
+ * @param props.data The data representing this fieldset's corresponding color; makes up the values of this fieldset's fields.
+ * @param props.setData A setter to update the `data` object.
+ */
 export default function ColorPicker({
 	title,
 	data,

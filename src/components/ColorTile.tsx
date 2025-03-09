@@ -3,6 +3,12 @@ import "../styles/ColorTile.css";
 import { decimalToHex } from "../utils/colorParsers";
 import { ColorContext } from "../App";
 
+/** A preview of a given color, clickable to copy the corresponding hexadecimal color representation.
+ * @param {object} props Properties for this tile.
+ * @param props.bgColor The color to be previewed; should be a valid CSS `<color>` value.
+ * @param props.topLabel A label to display at the top of the button.
+ * @param props.showColor Whether to show the hexadecimal color string at the bottom of the button.
+ */
 export default function ColorTile({
 	bgColor,
 	topLabel,
