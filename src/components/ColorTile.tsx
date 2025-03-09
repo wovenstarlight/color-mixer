@@ -1,11 +1,7 @@
-import { CSSProperties, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "../styles/ColorTile.css";
 import { decimalToHex } from "../utils/colorParsers";
-
-/** Canvas for getting the hex color. */
-const canvas = document.createElement("canvas");
-canvas.width = canvas.height = 1;
-const ctx = canvas.getContext("2d", { willReadFrequently: true });
+import { ColorContext } from "../App";
 
 export default function ColorTile({
 	bgColor,
@@ -16,23 +12,38 @@ export default function ColorTile({
 	topLabel?: string,
 	bottomLabel?: string,
 }) {
+	/** Canvas for getting the hex color. */
+	const canvas = document.createElement("canvas");
+	canvas.width = canvas.height = 1;
+	const ctx = canvas.getContext("2d", { willReadFrequently: true });
+
 	/** Reference to the actual color preview. */
 	const flatColor = useRef(null);
+	/** Hex representation of the mixed color. */
+	const [hex, setHex] = useState("#");
 
-	/** Copies this tile's color to the clipboard as a hex value.
-	 * Since combined colors will be in various color space functions, draw & colorpick from a canvas to get the hex value.
-	 */
-	function copyColor() {
+	/** Returns the hex representation of the current */
+	function updateHex() {
 		ctx!.clearRect(0, 0, 1, 1);
 		ctx!.fillStyle = window.getComputedStyle(flatColor.current!).getPropertyValue("background-color");
 		ctx!.fillRect(0, 0, 1, 1);
 		const data = ctx!.getImageData(0, 0, 1, 1).data;
-		const hex = "#".concat([
+		setHex("#".concat([
 			decimalToHex(data[0]),
 			decimalToHex(data[1]),
 			decimalToHex(data[2]),
 			decimalToHex(data[3]),
-		].join(""));
+		].join("")));
+	}
+
+	// Force an update in the calculated hex if the overall colors change
+	const [color1, color2] = useContext(ColorContext);
+	useEffect(() =>{
+		updateHex();
+	}, [Object.values(color1).join(""), Object.values(color2).join("")]);
+
+	/** Copies this tile's color to the clipboard as a hex value. */
+	function copyColor() {
 		navigator.clipboard.writeText(hex);
 	}
 

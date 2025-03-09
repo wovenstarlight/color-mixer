@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import "./styles/App.css";
 import ColorPicker from "./components/ColorPicker";
+import { Color } from "./definitions";
+
+export const ColorContext = createContext<Color[]>([]);
 
 function App() {
 	const [color1, setColor1] = useState({
 		color: "#ffffff",
 		opacity: 100,
 		strength: 50,
-	})
+	});
 	const [color2, setColor2] = useState({
 		color: "#000000",
 		opacity: 100,
 		strength: 50,
-	})
+	});
 
 	return (
-		<>
+		<ColorContext.Provider value={[color1, color2]}>
 			<h1>color-mix(er)</h1>
 			<form id="colorpicking">
 				<ColorPicker
@@ -49,7 +52,7 @@ function App() {
 				<p>Click a tile to copy the corresponding hex code!</p>
 				{/* TODO */}
 			</section>
-		</>
+		</ColorContext.Provider>
 	)
 }
 
